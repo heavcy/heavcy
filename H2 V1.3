@@ -1,0 +1,29 @@
+package h2;
+
+public class H2 {
+	public static double calculate(double S, double x,double error){
+		//calculate the new guess by formula
+		S=0.5*(S+(x/S));
+		//when the guess isn't accurate enough, use recursive method to loop the formula
+		if((S*S)-x>=error){
+			calculate(S,x,error);
+			return S;
+		}
+		System.out.println(S);
+		return S;
+	}
+	
+	public static void main (String[]args){
+		double x;
+		double S;
+		double error;
+		//set the number which need to calculate
+		x=26;
+		//calculate the initial guess
+		S=x/2;
+		//set the accuracy of the guess
+		error=0.0001;
+		calculate(S,x,error);
+	}
+
+}
