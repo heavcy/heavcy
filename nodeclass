@@ -1,0 +1,11 @@
+public class DNode {
+	static int noOfLinkedList=0;
+	int data;
+	DNode previousnode;
+	DNode nextnode;
+	DNode (int data){
+		this.data=data;
+		noOfLinkedList++;
+	}
+
+}
