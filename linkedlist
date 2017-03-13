@@ -1,0 +1,45 @@
+public class Linkedlist {
+	
+	static DNode root;
+	static DNode temp;
+	static DNode current;
+	public void addNodes(int data){
+		DNode dNode= new DNode(data);
+		if (root==null){
+			root=dNode;
+			root.previousnode=null;
+			root.nextnode=null;
+		}else{
+			current=root;
+			while (current.nextnode!=null){
+				current=current.nextnode;
+			}
+			current.nextnode=dNode;
+			dNode.previousnode=current;
+			dNode.nextnode=null;
+		}
+	}
+	
+	public void insertNodes(int data, int after){
+		DNode dNode= new DNode(data);
+		int ithNode=1;
+		current=root;
+		while (ithNode!=after){
+			current.nextnode=root;
+			ithNode++;
+		}
+		temp=current.nextnode;
+		current.nextnode=dNode;
+		dNode.nextnode=temp;
+		temp.previousnode=dNode;
+		dNode.previousnode=current;
+		
+	}
+	public void deleteNode(int nodeNumber){
+		
+	}
+	public static void main (String[]args){
+		
+	}
+
+}
