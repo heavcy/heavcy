@@ -1,0 +1,120 @@
+public class Linkedlist {
+	
+	static DNode root;
+	static DNode temp;
+	static DNode current;
+	public void addNodes(String data){
+		DNode dNode= new DNode(data);
+		//root=null means the list is null so just add the node
+		if (root==null){
+			root=dNode;
+			root.previousnode=null;
+			root.nextnode=null;
+		}else{
+		//move the current to the last
+			current=root;
+			while (current.nextnode!=null){
+				current=current.nextnode;
+			}
+		//make the last node's next node be the node inserted
+			current.nextnode=dNode;
+			dNode.previousnode=current;
+			dNode.nextnode=null;
+		}
+	}
+	
+	public void insertNodes(String data, int after){
+		DNode dNode= new DNode(data);
+		int ithNode=1;
+		current=root;
+		//find the place to insert the node
+		while (ithNode!=after){
+			current=current.nextnode;
+			ithNode++;
+		}
+		temp=current.nextnode;
+		current.nextnode=dNode;
+		dNode.nextnode=temp;
+		temp.previousnode=dNode;
+		dNode.previousnode=current;
+		
+	}
+	public void deleteNode(int nodeNumber){
+		int ithNode = 1;
+		current= root;
+		//if nodenumber is one just delete the first one 
+		if (nodeNumber==1){
+			root=current.nextnode;
+			current.nextnode=null;
+			current.previousnode=null;
+		}else{
+			//find the place of the node which should be deleted 
+			while(ithNode!=nodeNumber){
+				current=current.nextnode;
+				ithNode++;
+			}
+			if(current.nextnode==null){
+				current.previousnode.nextnode=null;
+				current.previousnode=null;
+			}else{
+				current.previousnode.nextnode=current.nextnode;
+				current.nextnode.previousnode=current.previousnode;
+			}
+		}
+		
+	}
+	public void destory(){
+		root=null;
+	}
+	public void find(String data){
+		current=root;
+		int ithNode=1;
+		while(current.data!=data){
+			current=current.nextnode;
+			ithNode++;
+		}
+		System.out.println(ithNode);
+	}
+	public void print(){
+		current=root;
+		//print the node one by one
+		while(current!=null){
+			System.out.println(current.data);
+			current=current.nextnode;
+		}
+	}
+	public void printback(){
+		current=root;
+		//move the node to the last
+		while(current.nextnode!=null){
+			current=current.nextnode;
+		}
+		//print the node from the last to the first
+		while(current!=null){
+			System.out.println(current.data);
+			current=current.previousnode;
+		}
+	}
+	public static void main (String[]args){
+		Linkedlist list=new Linkedlist();
+		list.addNodes("a");
+		list.addNodes("b");
+		list.addNodes("c");
+		list.addNodes("d");
+		list.addNodes("e");
+		list.addNodes("f");
+		list.find("e");
+		System.out.println();
+		list.insertNodes("v", 5);
+		list.print();
+		System.out.println();
+		list.printback();
+		System.out.println();
+		list.deleteNode(2);
+		list.print();
+		System.out.println();
+		list.destory();
+		list.print();
+	}
+
+}
