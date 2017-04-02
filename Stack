@@ -1,0 +1,16 @@
+public class Stack {
+	public void puch(Stack st,String a){
+		st.puch(st, a);
+	}
+	public void pop(Stack st,String a){
+		st.pop(st, a);
+	}
+	public void peak(Stack st,String a){
+		st.peak(st, a);
+	}
+	
+	public static void main (String[]args){
+		Stack st=new Stack();
+	}
+
+}
