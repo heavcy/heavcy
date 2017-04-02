@@ -1,0 +1,17 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class queue {
+	 public static void enqueue(Queue qu, String word){
+	       qu.add(word);
+	   }
+	 public static String dequeue(Queue qu){
+	        String removed = (String)qu.remove();
+			return removed;
+	 }
+	 
+	public static void main(String[]args){
+		Queue<String> qu=new LinkedList<String>();
+	}
+
+}
