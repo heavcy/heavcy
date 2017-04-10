@@ -1,0 +1,21 @@
+import java.util.Iterator;
+import java.util.Stack;
+
+public class stacks {
+		//add item to top of stack
+		public static void push(Stack st, String a) {
+	      st.push(new String(a));
+	   }
+		//remove item from top of stack
+	    public static String pop(Stack st) {
+	        String a = (String) st.pop();
+	        System.out.println(a);
+	        return a;
+	    }
+	    //use top item in stack without removing it
+	    public String peek(Stack st){
+	    	String a=(String) st.peek();
+	    	return a;
+	    }
+
+}
