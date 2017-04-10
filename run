@@ -1,0 +1,43 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+
+public class RUN {
+	public static void main(String[]args){
+		String temp;
+		Stack st = new Stack();
+		Queue<String> qu=new LinkedList<String>();
+		stacks.push(st, "a");
+		stacks.push(st, "b");
+		stacks.push(st, "c");
+		//Move the contents of a stack to a queue
+		System.out.println(1);
+		while (st.isEmpty()!=true){
+			temp=stacks.pop(st);
+			queue.enqueue(qu, temp);
+		}
+		System.out.println(qu);
+		System.out.println(st);
+		System.out.println();
+		//Move all the contents of a queue to a stack
+		System.out.println(2);
+		while(qu.isEmpty()!=true){
+			temp=queue.dequeue(qu);
+			stacks.push(st, temp);
+		}
+		System.out.println(st);
+		System.out.println(qu);
+		System.out.println();
+		//Move the contents of a stack to another stack
+		System.out.println(3);
+		Stack st2=new Stack();
+		while(st.isEmpty()!=true){
+			temp=stacks.pop(st);
+			stacks.push(st2, temp);
+		}
+		System.out.println(st2);
+		System.out.println(st);
+	}
+
+}
