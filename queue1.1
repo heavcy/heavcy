@@ -1,0 +1,23 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class queue {
+	//add item to the front of the list
+	 public static void enqueue(Queue queue, String word){
+	       queue.add(word);
+	   }
+	 //remove item from the end of the queue
+	 public static String dequeue(Queue queue){
+	        String removed = (String)queue.remove();
+	        System.out.println(removed);
+	        return removed;
+	    }
+	 //use item from end of the queue without removing it
+	 public String peek(Queue queue){
+	    	String a=(String) queue.peek();
+	    	return a;
+	    }
+	 
+
+}
